@@ -1,0 +1,9 @@
+---
+- name: Install OpenLDAP
+  yum:
+    name:
+      - openldap-servers
+      - openldap
+      - openldap-clients
+    state: present
+

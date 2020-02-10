@@ -1,0 +1,5 @@
+---
+ansible_ldapauth_basedn: "My Amazing organisation!"
+ansible_ldapauth_domain: "int.morot.fr"
+ansible_ldapauth_password: "Secret!"
+

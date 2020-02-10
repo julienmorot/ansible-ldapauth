@@ -1,0 +1,6 @@
+- name: Start service
+  systemd:
+    name: "slapd"
+    state: started
+    enabled: yes
+
