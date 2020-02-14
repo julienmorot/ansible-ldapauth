@@ -1,5 +1,11 @@
 ---
 ansible_ldapauth_basedn: "My Amazing organisation!"
 ansible_ldapauth_domain: "int.morot.fr"
+ansible_ldapauth_rootdn: "dc=int,dc=morot,dc=fr"
 ansible_ldapauth_password: "Secret!"
 
+openldap_user: openldap
+openldap_group: openldap
+openldap_datadir: /var/lib/ldap
+openldap_accesslog: /var/lib/ldap/accesslog
+openldap_ldifdir: /var/lib/ldap/ldif

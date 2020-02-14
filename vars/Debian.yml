@@ -1,0 +1,5 @@
+---
+openldap_user: openldap
+openldap_group: openldap
+openldap_datadir: /var/lib/ldap
+openldap_accesslog: /var/lib/ldap/accesslog

@@ -1,0 +1,23 @@
+---
+- name: Create ldif directory
+  file:
+    path: "{{ openldap_ldifdir }}"
+    state: directory
+    mode: 0700
+    owner: "{{ openldap_user }}"
+    group: "{{ openldap_group }}"
+
+- name: Push consumer LDIF
+  template:
+    src: consumer.ldif.j2
+    dest: "{{ openldap_ldifdir }}/consumer.ldif"
+
+- name: Debug
+  debug:
+    msg: "ldapadd -Q -Y EXTERNAL -H ldapi:/// -f {{ openldap_ldifdir }}/consumer.ldif && touch {{ openldap_ldifdir }}/consumer.ldif.done"
+
+- name: Import LDIF consumer
+  shell:
+    cmd: "ldapadd -Q -Y EXTERNAL -H ldapi:/// -f {{ openldap_ldifdir }}/consumer.ldif && touch {{ openldap_ldifdir }}/consumer.ldif.done"
+    creates: "{{ openldap_ldifdir }}/consumer.ldif.done"
+
