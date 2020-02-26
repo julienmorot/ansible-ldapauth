@@ -1,0 +1,13 @@
+---
+- name: Push memberOf LDIF overlay
+  copy:
+    src: memberof.ldif
+    dest: "{{ openldap_ldifdir }}"
+    owner: "{{ openldap_user }}"
+    group: "{{ openldap_group }}"
+    mode: 0755
+
+- name: Import memberOf LDIF
+  shell:
+    cmd: "ldapadd -Q -Y EXTERNAL -H ldapi:/// -f {{ openldap_ldifdir }}/memberof.ldif && touch {{ openldap_ldifdir }}/memberof.ldif.done"
+    creates: "{{ openldap_ldifdir }}/memberof.ldif.done"

@@ -8,4 +8,8 @@
   when: ansible_ldapauth_type == "master"
 - include: slave.yml
   when: ansible_ldapauth_type == "slave"
+- include: memberof.yml
+- include: ppolicy.yml
+  when: ansible_ldapauth_type == "master"
+
 

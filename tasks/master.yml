@@ -47,5 +47,3 @@
     cmd: "ldapadd -x -w {{ ansible_ldapauth_password }} -D cn=admin,{{ ansible_ldapauth_rootdn }} -H ldap:// -f {{ openldap_ldifdir }}/base_dit.ldif && touch {{ openldap_ldifdir }}/base_dit.ldif.done"
     creates: "{{ openldap_ldifdir }}/base_dit.ldif.done"
 
-
-
