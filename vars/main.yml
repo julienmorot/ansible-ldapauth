@@ -1,0 +1,35 @@
+---
+sysfiles_perms:
+  - path: /etc/passwd
+    owner: root
+    group: root
+    mode: '0644'
+  - path: /etc/group
+    owner: root
+    group: root
+    mode: '0644'
+  - path: /etc/shadow
+    owner: root
+    group: shadow
+    mode: '0640'
+  - path: /etc/gshadow
+    owner: root
+    group: shadow
+    mode: '0640'
+  - path: /etc/passwd-
+    owner: root
+    group: root
+    mode: '0644'
+  - path: /etc/group-
+    owner: root
+    group: root
+    mode: '0644'
+  - path: /etc/shadow-
+    owner: root
+    group: shadow
+    mode: '0640'
+  - path: /etc/gshadow-
+    owner: root
+    group: shadow
+    mode: '0640'
+
