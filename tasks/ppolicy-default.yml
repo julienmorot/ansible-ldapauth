@@ -1,0 +1,12 @@
+---
+- name: Push Password Policy default LDIF
+  template:
+    src: ppolicy_default.ldif.j2
+    dest: "{{ openldap_ldifdir }}/ppolicy_default.ldif"
+
+- name: Import Password Policy default LDIF
+  shell:
+    cmd: "ldapadd -x -w {{ ansible_ldapauth_password }} -D cn=admin,{{ ansible_ldapauth_rootdn }} -H ldap:// -f {{ openldap_ldifdir }}/ppolicy_default.ldif && touch {{ openldap_ldifdir }}/ppolicy_default.ldif.done"
+    creates: "{{ openldap_ldifdir }}/ppolicy_default.ldif.done"
+
+
