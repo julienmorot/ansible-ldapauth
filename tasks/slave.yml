@@ -12,9 +12,9 @@
     src: consumer.ldif.j2
     dest: "{{ openldap_ldifdir }}/consumer.ldif"
 
-- name: Debug
-  debug:
-    msg: "ldapadd -Q -Y EXTERNAL -H ldapi:/// -f {{ openldap_ldifdir }}/consumer.ldif && touch {{ openldap_ldifdir }}/consumer.ldif.done"
+#- name: Debug
+#  debug:
+#    msg: "ldapadd -Q -Y EXTERNAL -H ldapi:/// -f {{ openldap_ldifdir }}/consumer.ldif && touch {{ openldap_ldifdir }}/consumer.ldif.done"
 
 - name: Import LDIF consumer
   shell:

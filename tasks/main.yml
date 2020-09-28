@@ -1,5 +1,4 @@
 ---
-- include: perms.yml
 - include: ubuntu.yml
   when: ansible_os_family == "Debian"
 - include: centos.yml
@@ -10,7 +9,7 @@
 - include: slave.yml
   when: ansible_ldapauth_type == "slave"
 - include: memberof.yml
-- include: ppolicy.yml
-  when: ansible_ldapauth_type == "master"
+#- include: ppolicy.yml
+#  when: ansible_ldapauth_type == "master"
 
 

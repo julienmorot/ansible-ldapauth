@@ -28,9 +28,9 @@
     src: provider.ldif.j2
     dest: "{{ openldap_ldifdir }}/provider.ldif"
 
-- name: Debug
-  debug:
-    msg: "ldapadd -Q -Y EXTERNAL -H ldapi:/// -f {{ openldap_ldifdir }}/provider.ldif && touch {{ openldap_ldifdir }}/provider.ldif.done"
+#- name: Debug
+#  debug:
+#    msg: "ldapadd -Q -Y EXTERNAL -H ldapi:/// -f {{ openldap_ldifdir }}/provider.ldif && touch {{ openldap_ldifdir }}/provider.ldif.done"
 
 - name: Import LDIF provider
   shell:
