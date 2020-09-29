@@ -24,3 +24,21 @@
       - libpam-ldap
       - ldap-auth-config
 
+- name: Configure NSS to use LDAP services
+  lineinfile:
+    dest: /etc/nsswitch.conf
+    regexp: "^passwd:"
+    line: "passwd:         compat ldap systemd"
+
+- name: Configure NSS to use LDAP services
+  lineinfile:
+    dest: /etc/nsswitch.conf
+    regexp: "^group:"
+    line: "group:         compat ldap systemd"
+
+- name: Configure NSS to use LDAP services
+  lineinfile:
+    dest: /etc/nsswitch.conf
+    regexp: "^shadow:"
+    line: "shadow:         compat ldap systemd"
+
