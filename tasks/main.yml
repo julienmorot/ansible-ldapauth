@@ -12,5 +12,8 @@
 - include: ppolicy.yml
 - include: ppolicy-default.yml
   when: ansible_ldapauth_type == "master"
+- include: client.yml
+  when: ansible_ldapauth_client == "enabled"
+
 
 

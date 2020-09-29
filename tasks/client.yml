@@ -1,0 +1,26 @@
+---
+- name: Debconf LIBNSS-LDAP
+  debconf:
+    name: slapd
+    question: "{{ item.question }}"
+    vtype: "{{ item.vtype }}"
+    value: "{{ item.value }}"
+  with_items:
+    - question: "ldap-auth-config/ldapns/ldap-server"
+      vtype: string
+      value: "{{ ansible_ldapauth_ldapurl }}"
+    - question: "ldap-auth-config/ldapns/base-dn"
+      vtype: string
+      value: "{{ ansible_ldapauth_rootdn }}"
+
+- name: Install PAM/NSS
+  apt:
+    update_cache: yes
+    state: present
+    force_apt_get: yes
+    pkg:
+      - libpam-modules
+      - libnss-ldap
+      - libpam-ldap
+      - ldap-auth-config
+
